@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='book'>
+        <h1>{% block title %} {% endblock %}</h1>
+        <table>
+            <tr>
+                <td><h3>Title</h3></td>
+                <td><h3>Author</h3></td>
+            </tr>
+                {% for book in all_books %}
+                <tr></tr><td>{{ book[1] }}</td>
+                <td>{{ book[2] }}</td></tr>
+                {% endfor %}
+        </table>
+        </div>
+{% endblock %}
