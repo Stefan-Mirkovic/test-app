@@ -65,4 +65,4 @@ def AddBook():
         return render_template('add_book.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=db_port, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
