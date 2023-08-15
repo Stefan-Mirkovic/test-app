@@ -8,12 +8,12 @@ steps:
            'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
   
   # Entrypoint, timeout and environment variables
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    timeout: 240s
-    args: ['compute', 'instances', 
-           'create-with-container', 'my-vm-name',
-           '--container-image', 
-           'europe-central2.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=europe-central2'
+  #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+ #   entrypoint: 'gcloud'
+ #   timeout: 240s
+ #   args: ['compute', 'instances', 
+ #          'create-with-container', 'my-vm-name',
+ #          '--container-image', 
+ #          'europe-central2.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
+ #   env:
+ #     - 'CLOUDSDK_COMPUTE_REGION=europe-central2'
