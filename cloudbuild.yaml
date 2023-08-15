@@ -1,7 +1,7 @@
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage', '.' ]
+    args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage', '.', 'managed', '--allow-unauthenticated' ]
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
