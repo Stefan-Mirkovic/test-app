@@ -5,8 +5,8 @@ steps:
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
-
+           'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage', 'managed', '--allow-unauthenticated']
+  
   # Entrypoint, timeout and environment variables
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
