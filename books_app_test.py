@@ -5,10 +5,10 @@ from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
-db_host = os.environ["INSTANCE_HOST"]
-db_user = os.environ["DB_USER"]
-db_pass = os.environ["DB_PASS"]
-db_port = os.environ["DB_PORT"]
+db_host = os.environ["BOOKS_INSTANCE_HOST"]
+db_user = os.environ["BOOKS_DB_USER"]
+db_pass = os.environ["BOOKS_DB_PASS"]
+db_port = os.environ["BOOKS_DB_PORT"]
 
 try:
     db = mysql.connector.connect(host = db_host, user = db_user, password = db_pass, port = db_port, autocommit=True)
