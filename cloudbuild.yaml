@@ -1,11 +1,35 @@
-steps:
+ steps:
+ # Build the container image
+ - name: 'gcr.io/cloud-builders/docker'
+   args: ['build', '-t', 'gcr.io/poc-vp/book-app:$COMMIT_SHA', '.']
+ # Push the container image to Container Registry
+ - name: 'gcr.io/cloud-builders/docker'
+   args: ['push', 'gcr.io/poc-vp/book-app:$COMMIT_SHA']
+ # Deploy container image to Cloud Run
+ - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+   entrypoint: gcloud
+   args:
+   - 'run'
+   - 'deploy'
+   - 'book-app'
+   - '--image'
+   - 'gcr.io/poc-vp/book-app:$COMMIT_SHA'
+   - '--region'
+   - 'europe-central2'
+   - 'allow-unauthenticated'
+   - 'managed'
+ images:
+ - 'gcr.io/poc-vp/book-app:$COMMIT_SHA'
+ 
+ 
+ #steps:
   # Docker Build
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage', '.', 'managed', '--allow-unauthenticated' ]
+ # - name: 'gcr.io/cloud-builders/docker'
+ #   args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage', '.', 'managed', '--allow-unauthenticated' ]
   # Docker Push
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 
-           'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
+ # - name: 'gcr.io/cloud-builders/docker'
+#    args: ['push', 
+#           'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
   
   # Entrypoint, timeout and environment variables
   #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
