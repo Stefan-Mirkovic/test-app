@@ -48,7 +48,7 @@ tags:
   
   
   # steps:
- # Build the container image
+ # Build the container image.
  #- name: 'gcr.io/cloud-builders/docker'
   # args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/book-app:$COMMIT_SHA', '.']
  # Push the container image to Container Registry
