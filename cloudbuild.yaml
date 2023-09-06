@@ -38,55 +38,10 @@ options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
   _PLATFORM: managed
-  _SERVICE_NAME: books-cloud-run
+  _SERVICE_NAME: tf-test-run
   _DEPLOY_REGION: europe-central2
   _AR_HOSTNAME: europe-central2-docker.pkg.dev
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed
-  - books-cloud-run
-  
-  
-  # steps:
- # Build the container image..
- #- name: 'gcr.io/cloud-builders/docker'
-  # args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/book-app:$COMMIT_SHA', '.']
- # Push the container image to Container Registry
- #- name: 'gcr.io/cloud-builders/docker'
- #  args: ['push', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/book-app:$COMMIT_SHA']
- # Deploy container image to Cloud Run
-# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
- #  entrypoint: gcloud
-  # args:
- #  - 'run'
- #  - 'deploy'
- #  - 'book-app'
- #  - '--image'
- #  - 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/book-app:$COMMIT_SHA'
- #  - '--region'
- #  - 'europe-central2'
- #  - 'allow-unauthenticated'
- #  - 'managed'
- #images:
- #- 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/book-app:$COMMIT_SHA'
- 
- 
- #steps:
-  # Docker Build
- # - name: 'gcr.io/cloud-builders/docker'
- #   args: ['build', '-t', 'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage', '.', 'managed', '--allow-unauthenticated' ]
-  # Docker Push
- # - name: 'gcr.io/cloud-builders/docker'
-#    args: ['push', 
-#           'europe-central2-docker.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
-  
-  # Entrypoint, timeout and environment variables
-  #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
- #   entrypoint: 'gcloud'
- #   timeout: 240s
- #   args: ['compute', 'instances', 
- #          'create-with-container', 'my-vm-name',
- #          '--container-image', 
- #          'europe-central2.pkg.dev/poc-vp/cloud-run-source-deploy/myimage']
- #   env:
- #     - 'CLOUDSDK_COMPUTE_REGION=europe-central2'
+  - tf-test-run
